@@ -15,26 +15,29 @@ class IndexPage extends React.Component {
 
   }*/
 
+  handleSelection = event => {
+    console.log(event.target.value)
+    const list = [...this.state.list]
+
+    list.push(event.target.value)
+
+    this.setState({ list })
+
+    this.context.handleDateSelected(event.target.value)
+  }
+
   render() {
     return (
       <AppContext.Consumer>
         {context => {
-          const datesList = context.dateToBook.map((date, index) => (
-            <input
-              type="text"
-              name={`date-${index}-map`}
-              key={`date-${index}-map`}
-              value={date}
-              readOnly={true}
-            />
-          ))
           return (
             <Layout>
               <h2>Select some dates :</h2>
               <div>
                 <button
                   name="01"
-                  onClick={() => context.handleDateSelected("01-01-2001")}
+                  value="01-01-2001"
+                  onClick={e => this.handleSelection(e)}
                 >
                   01-01-2001
                 </button>
@@ -43,7 +46,8 @@ class IndexPage extends React.Component {
               <div>
                 <button
                   name="02"
-                  onClick={() => context.handleDateSelected("02-02-2002")}
+                  value="02-02-2002"
+                  onClick={e => this.handleSelection(e)}
                 >
                   02-02-2002
                 </button>
@@ -52,7 +56,8 @@ class IndexPage extends React.Component {
               <div>
                 <button
                   name="03"
-                  onClick={() => context.handleDateSelected("03-03-2003")}
+                  value="02-02-2002"
+                  onClick={e => this.handleSelection(e)}
                 >
                   03-03-2003
                 </button>
@@ -72,7 +77,17 @@ class IndexPage extends React.Component {
                 <input type="hidden" name="form-name" value="booking" />
 
                 <h3>Selected dates :</h3>
-                <div>{datesList}</div>
+                <div>
+                  {this.state.list.map((date, index) => (
+                    <input
+                      type="text"
+                      name={`date-${index}-map`}
+                      key={`date-${index}-map`}
+                      value={date}
+                      readOnly={true}
+                    />
+                  ))}
+                </div>
 
                 <div>
                   <label htmlFor="name">name</label>
