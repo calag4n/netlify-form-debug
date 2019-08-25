@@ -52,12 +52,24 @@ const IndexPage = () => (
           <h3>Selected dates :</h3>
           <div>
             {context.dateToBook.map((date, index) => (
-              <input 
-                type="text" 
-                name={`date-${index}`} 
-                key={index} 
+              <input
+                type="text"
+                name={`date-${index}-map`}
+                key={`date-${index}-map`}
                 value={date}
-              readOnly={true} 
+                readOnly={true}
+              />
+            ))}
+          </div>
+
+          <div>
+            {context.dateToBook.forEach((date, index) => (
+              <input
+                type="text"
+                name={`date-${index}-forEach`}
+                key={`date-${index}-forEach`}
+                value={date}
+                readOnly={true}
               />
             ))}
           </div>
