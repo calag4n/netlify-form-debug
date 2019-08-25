@@ -6,7 +6,17 @@ import AppContext from "../context/AppContext"
 
 const IndexPage = () => (
   <AppContext.Consumer>
-    {context => (
+    {context => {
+      const datesList = context.dateToBook.map((date, index) => (
+        <input
+          type="text"
+          name={`date-${index}-map`}
+          key={`date-${index}-map`}
+          value={date}
+          readOnly={true}
+        />
+      ))
+      return (
       <Layout>
         <h2>Select some dates :</h2>
         <div>
@@ -51,27 +61,7 @@ const IndexPage = () => (
 
           <h3>Selected dates :</h3>
           <div>
-            {context.dateToBook.map((date, index) => (
-              <input
-                type="text"
-                name={`date-${index}-map`}
-                key={`date-${index}-map`}
-                value={date}
-                readOnly={true}
-              />
-            ))}
-          </div>
-
-          <div>
-            {context.dateToBook.forEach((date, index) => (
-              <input
-                type="text"
-                name={`date-${index}-forEach`}
-                key={`date-${index}-forEach`}
-                value={date}
-                readOnly={true}
-              />
-            ))}
+            {datesList}
           </div>
 
           <div>
@@ -84,7 +74,7 @@ const IndexPage = () => (
           </div>
         </form>
       </Layout>
-    )}
+    )}}
   </AppContext.Consumer>
 )
 
