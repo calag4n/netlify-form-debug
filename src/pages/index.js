@@ -79,7 +79,7 @@ class IndexPage extends React.Component {
                 <div>
                   <input
                     type="text"
-                    style={{ visibility: "hidden" }}
+                    style={{ display: "none" }}
                     name={`date-list3-non-mapped-1`}
                     value={this.state.list[0]}
                   />
