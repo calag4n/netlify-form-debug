@@ -4,27 +4,16 @@ import AppContext from "./AppContext"
 export class AppProvider extends Component {
   state = {
     dateToBook: [],
-    list3: [],
-    handleDateSelected: date => this.handleDateSelected(date),
+    handleDateSelected: event => this.handleDateSelected(event),
   }
 
-  handleDateSelected = date => {
-    console.log(date)
+  handleDateSelected = event => {
+    const date = event.target.value
     const dateToBook = [...this.state.dateToBook]
-    let list3 = [...this.state.list3]
 
     dateToBook.push(date)
 
-    list3 = dateToBook.map((date, index) => (
-      <input
-        type="text"
-        name={`date-${index}-list3`}
-        key={`date-${index}-list3`}
-        defaultValue={date}
-        readOnly={true}
-      />
-    ))
-    this.setState({ dateToBook, list3 })
+    this.setState({ dateToBook })
   }
 
   render() {
