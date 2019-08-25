@@ -7,7 +7,7 @@ import AppContext from "../context/AppContext"
 class IndexPage extends React.Component {
   state = {
     list: this.context.dateToBook,
-    list2: ['a', 'b', 'c']
+    list2: ["a", "b", "c"],
   }
 
   /* componentDidMount(){
@@ -25,6 +25,7 @@ class IndexPage extends React.Component {
     this.setState({ list })
 
     this.context.handleDateSelected(event.target.value)
+    this.forceUpdate()
   }
 
   render() {
@@ -33,6 +34,7 @@ class IndexPage extends React.Component {
         {context => {
           return (
             <Layout>
+              <h2>#8</h2>
               <h2>Select some dates :</h2>
               <div>
                 <button
@@ -57,7 +59,7 @@ class IndexPage extends React.Component {
               <div>
                 <button
                   name="03"
-                  value="02-02-2002"
+                  value="03-03-2003"
                   onClick={e => this.handleSelection(e)}
                 >
                   03-03-2003
@@ -78,17 +80,7 @@ class IndexPage extends React.Component {
                 <input type="hidden" name="form-name" value="booking" />
 
                 <h3>Selected dates :</h3>
-                <div>
-                  {this.state.list2.map((date, index) => (
-                    <input
-                      type="text"
-                      name={`date-${index}-map`}
-                      key={`date-${index}-map`}
-                      value={date}
-                      readOnly={true}
-                    />
-                  ))}
-                </div>
+                <div>{context.list3}</div>
 
                 <div>
                   <label htmlFor="name">name</label>
