@@ -74,22 +74,20 @@ class IndexPage extends React.Component {
 
                 <h3>Selected dates :</h3>
 
-
                 <div>{context.list3}</div>
 
                 <div>
-                <input
-                  type="text"
-                  name={`date-list3-non-mapped-1`}
-                  value={this.state.list[0]}
-                 
-                />
-                <input
-                  type="text"
-                  name={`date-list3-non-mapped-2`}
-                  value={this.state.list[1]}
-                 
-                />
+                  <input
+                    type="text"
+                    style={{ visibility: "hidden" }}
+                    name={`date-list3-non-mapped-1`}
+                    value={this.state.list[0]}
+                  />
+                  <input
+                    type="text"
+                    name={`date-list3-non-mapped-2`}
+                    value={this.state.list[1]}
+                  />
                 </div>
 
                 <div>
