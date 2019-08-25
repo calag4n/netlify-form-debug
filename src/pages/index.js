@@ -10,12 +10,6 @@ class IndexPage extends React.Component {
     list2: ["a", "b", "c"],
   }
 
-  /* componentDidMount(){
-    const list = [...this.state.list]
-
-
-  }*/
-
   handleSelection = event => {
     console.log(event.target.value)
     const list = [...this.state.list]
@@ -25,7 +19,6 @@ class IndexPage extends React.Component {
     this.setState({ list })
 
     this.context.handleDateSelected(event.target.value)
-    this.forceUpdate()
   }
 
   render() {
@@ -34,7 +27,7 @@ class IndexPage extends React.Component {
         {context => {
           return (
             <Layout>
-              <h2>#8</h2>
+              <h2>#9</h2>
               <h2>Select some dates :</h2>
               <div>
                 <button
@@ -80,7 +73,24 @@ class IndexPage extends React.Component {
                 <input type="hidden" name="form-name" value="booking" />
 
                 <h3>Selected dates :</h3>
+
+
                 <div>{context.list3}</div>
+
+                <div>
+                <input
+                  type="text"
+                  name={`date-list3-non-mapped-1`}
+                  value={this.state.list[0]}
+                 
+                />
+                <input
+                  type="text"
+                  name={`date-list3-non-mapped-2`}
+                  value={this.state.list[1]}
+                 
+                />
+                </div>
 
                 <div>
                   <label htmlFor="name">name</label>

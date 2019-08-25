@@ -4,7 +4,7 @@ import AppContext from "./AppContext"
 export class AppProvider extends Component {
   state = {
     dateToBook: [],
-    list3 : [],
+    list3: [],
     handleDateSelected: date => this.handleDateSelected(date),
   }
 
@@ -20,7 +20,7 @@ export class AppProvider extends Component {
         type="text"
         name={`date-${index}-list3`}
         key={`date-${index}-list3`}
-        value={date}
+        defaultValue={date}
         readOnly={true}
       />
     ))
