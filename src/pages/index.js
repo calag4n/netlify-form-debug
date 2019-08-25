@@ -7,6 +7,7 @@ import AppContext from "../context/AppContext"
 class IndexPage extends React.Component {
   state = {
     list: this.context.dateToBook,
+    list2: ['a', 'b', 'c']
   }
 
   /* componentDidMount(){
@@ -78,7 +79,7 @@ class IndexPage extends React.Component {
 
                 <h3>Selected dates :</h3>
                 <div>
-                  {this.state.list.map((date, index) => (
+                  {this.state.list2.map((date, index) => (
                     <input
                       type="text"
                       name={`date-${index}-map`}
