@@ -8,6 +8,7 @@ export class AppProvider extends Component {
   }
 
   handleDateSelected = date => {
+    console.log(date)
     const dateToBook = [...this.state.dateToBook]
 
     dateToBook.push(date)
@@ -16,6 +17,7 @@ export class AppProvider extends Component {
   }
 
   render() {
+    console.log(this.state.dateToBook)
     return (
       <AppContext.Provider value={this.state}>
         {this.props.children}
